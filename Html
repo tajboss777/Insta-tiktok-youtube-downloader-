@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>InstaTubeTok Downloader</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 30px; background: #f5f5f5; }
+    input, button { padding: 10px; width: 80%; margin: 10px; }
+    h1 { color: #333; }
+    .buttons button { width: 80%; margin: 5px; }
+  </style>
+</head>
+<body>
+  <h1>InstaTubeTok Downloader</h1>
+  <p>Download MP3 or videos from YouTube, TikTok & Instagram</p>
+  <input type="text" id="urlInput" placeholder="Paste video URL here" />
+  <div class="buttons">
+    <button onclick="download('mp3')">Download MP3</button>
+    <button onclick="download('video')">Download Video</button>
+    <button onclick="download('hd')">Download HD Video</button>
+  </div>
+
+  <script>
+    function download(type) {
+      const url = document.getElementById("urlInput").value;
+      if (!url) return alert("Please enter a URL");
+      window.open(`https://YOUR_NGROK_URL/download?url=${encodeURIComponent(url)}&type=${type}`);
+    }
+  </script>
+</body>
+</html>
